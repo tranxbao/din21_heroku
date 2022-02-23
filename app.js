@@ -1,6 +1,8 @@
 const express=require('express');
+const dotenv=require('dotenv');
 
 const app=express();
+dotenv.config();
 //for post data to work add below two lines
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,5 +40,5 @@ app.post('/wholeName',function(req,res){
     console.log(req.body);
 });
 
-const port=3000;
-app.listen(port);
+//const port=3000;
+app.listen(process.env.PORT);
